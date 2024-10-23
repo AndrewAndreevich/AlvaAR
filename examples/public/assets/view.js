@@ -35,28 +35,28 @@ class ARCamView
        this.object.position.set( x, y, z );
        this.object.visible = false;
 
-        this.scene = new THREE.Scene();
-        this.scene.add( new THREE.AmbientLight( 0x808080 ) );
-        this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
-        this.scene.add( this.camera );
+       this.scene = new THREE.Scene();
+       this.scene.add( new THREE.AmbientLight( 0x808080 ) );
+       this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
+       this.scene.add( this.camera );
        this.scene.add( this.object );
 
-       const loader = new GLTFLoader();
+     // const loader = new GLTFLoader();
 
 
-        loader.load( 'https://cloud.test.fairyland.world/upload/cloud/17288/17260_uGAeRXafFI.glb', this.scene , _this, function ( gltf, scene, _this) 
-        { 
-            
-            _this.model = gltf.scene;
+     //  loader.load( 'https://cloud.test.fairyland.world/upload/cloud/17288/17260_uGAeRXafFI.glb', this.scene , _this, function ( gltf, scene, _this) 
+     //  { 
+     //      
+     //      _this.model = gltf.scene;
 
-            _this.model.scale.set( scale, scale, scale );
-            _this.model.position.set( x, y, z );
-            _this.model.visible = false;
-            
-            scene.add( _this.model ); 
+     //      _this.model.scale.set( scale, scale, scale );
+     //      _this.model.position.set( x, y, z );
+     //      _this.model.visible = false;
+     //      
+     //      scene.add( _this.model ); 
 
-        }, undefined, 
-        function ( error ) { console.error( error ); } );
+     //  }, undefined, 
+     //  function ( error ) { console.error( error ); } );
 
 
 
