@@ -1,7 +1,7 @@
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
 import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
 import { AlvaARConnectorTHREE } from './alva_ar_three.js'
-
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
 
 class ARCamView
 {
@@ -23,7 +23,7 @@ class ARCamView
 
 
 
-
+        _this = this;
 
 
 
@@ -40,6 +40,26 @@ class ARCamView
         this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
         this.scene.add( this.camera );
        this.scene.add( this.object );
+
+       const loader = new GLTFLoader();
+
+
+        loader.load( 'https://cloud.test.fairyland.world/upload/cloud/17288/17260_uGAeRXafFI.glb', this.scene , _this, function ( gltf, scene, _this) 
+        { 
+            
+            _this.model = gltf.scene;
+
+            _this.model.scale.set( scale, scale, scale );
+            _this.model.position.set( x, y, z );
+            _this.model.visible = false;
+            
+            scene.add( _this.model ); 
+
+        }, undefined, 
+        function ( error ) { console.error( error ); } );
+
+
+
 
         container.appendChild( this.renderer.domElement );
 
@@ -58,11 +78,13 @@ class ARCamView
         this.applyPose( pose, this.camera.quaternion, this.camera.position );
 
         this.object.visible = true;
+        this.model.visible = true;
     }
 
     lostCamera()
     {
         this.object.visible = false;
+        this.model.visible = false;
     }
 }
 
