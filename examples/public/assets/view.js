@@ -42,14 +42,14 @@ class ARCamView
         //this.scene.add( this.object );
 
 
-        new GLTFLoader().load('https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', (gltf) => {
+      // new GLTFLoader().load('https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', (gltf) => {
 
-            const suzanne = gltf.scene;
-            suzanne.castShadow = true
-          
-            scene.add(gltf.scene)
+      //     const suzanne = gltf.scene;
+      //     suzanne.castShadow = true
+      //   
+      //     scene.add(gltf.scene)
 
-          })
+      //   })
 
 
           
