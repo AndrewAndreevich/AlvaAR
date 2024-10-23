@@ -1,7 +1,7 @@
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
 import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
 import { AlvaARConnectorTHREE } from './alva_ar_three.js'
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
 
 class ARCamView
 {
@@ -40,19 +40,6 @@ class ARCamView
         this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
         this.scene.add( this.camera );
        this.scene.add( this.object );
-
-
-        //new GLTFLoader().load('https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', (gltf) => {
-//
-        //    const suzanne = gltf.scene;
-        //    suzanne.castShadow = true
-        //  
-        //    scene.add(gltf.scene)
-//
-        //  })
-
-
-          
 
         container.appendChild( this.renderer.domElement );
 
