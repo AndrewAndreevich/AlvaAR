@@ -2,7 +2,6 @@ import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threej
 import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
 import { AlvaARConnectorTHREE } from './alva_ar_three.js'
 
-
 class ARCamView
 {
     constructor( container, width, height, x = 0, y = 0, z = -10, scale = 1.0)
@@ -18,7 +17,7 @@ class ARCamView
         this.camera.rotation.reorder( 'YXZ' );
         this.camera.updateProjectionMatrix();
 
-        this.object = new THREE.Mesh( new THREE.IcosahedronGeometry( 1, 0 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
+       // this.object = new THREE.Mesh( new THREE.IcosahedronGeometry( 1, 0 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
 
 
 
@@ -39,17 +38,17 @@ class ARCamView
         this.scene.add( new THREE.AmbientLight( 0x808080 ) );
         this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
         this.scene.add( this.camera );
-        this.scene.add( this.object );
+        //this.scene.add( this.object );
 
 
-      // new GLTFLoader().load('https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', (gltf) => {
+        new GLTFLoader().load('https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', (gltf) => {
 
-      //     const suzanne = gltf.scene;
-      //     suzanne.castShadow = true
-      //   
-      //     scene.add(gltf.scene)
+            const suzanne = gltf.scene;
+            suzanne.castShadow = true
+          
+            scene.add(gltf.scene)
 
-      //   })
+          })
 
 
           
