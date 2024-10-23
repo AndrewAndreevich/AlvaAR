@@ -1,6 +1,7 @@
 import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/build/three.module.js';
 import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
 import { AlvaARConnectorTHREE } from './alva_ar_three.js'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 class ARCamView
 {
