@@ -17,7 +17,19 @@ class ARCamView
         this.camera.rotation.reorder( 'YXZ' );
         this.camera.updateProjectionMatrix();
 
-        this.object = new THREE.Mesh( new THREE.IcosahedronGeometry( 1, 0 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
+       // this.object = new THREE.Mesh( new THREE.IcosahedronGeometry( 1, 0 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
+
+
+
+
+
+
+
+
+
+
+
+
         this.object.scale.set( scale, scale, scale );
         this.object.position.set( x, y, z );
         this.object.visible = false;
@@ -26,7 +38,20 @@ class ARCamView
         this.scene.add( new THREE.AmbientLight( 0x808080 ) );
         this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
         this.scene.add( this.camera );
-        this.scene.add( this.object );
+        //this.scene.add( this.object );
+
+
+        new GLTFLoader().load('https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', (gltf) => {
+
+            const suzanne = gltf.scene;
+            suzanne.castShadow = true
+          
+            scene.add(gltf.scene)
+
+          })
+
+
+          
 
         container.appendChild( this.renderer.domElement );
 
