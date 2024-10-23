@@ -47,7 +47,7 @@ class ARCamView
             const suzanne = gltf.scene;
             suzanne.castShadow = true
           
-            scene.add(gltf.Mesh)
+            scene.add(gltf.scene)
 
           })
 
