@@ -2,7 +2,7 @@ import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threej
 import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
 import { AlvaARConnectorTHREE } from './alva_ar_three.js'
 //import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader.js";
-
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/loaders/GLTFLoader.js';
 class ARCamView
 {
     constructor( container, width, height, x = 0, y = 0, z = -10, scale = 1.0)
@@ -21,16 +21,6 @@ class ARCamView
        this.object = new THREE.Mesh( new THREE.IcosahedronGeometry( 1, 0 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
 
 
-
-
-       // var _this = this;
-
-
-
-
-
-
-
        this.object.scale.set( scale, scale, scale );
        this.object.position.set( x, y, z );
        this.object.visible = false;
@@ -40,6 +30,28 @@ class ARCamView
        this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
        this.scene.add( this.camera );
        this.scene.add( this.object );
+
+
+       const loader = new GLTFLoader();
+        loader.load(
+        'https://cloud.test.fairyland.world/upload/cloud/17288/17260_uGAeRXafFI.glb',
+        (gltf) => {
+            const model = gltf.scene;
+            scene.add(model);  // Add the model to the scene
+            model.position.set(0, 0, 0);  // Optional: Adjust position
+            model.scale.set(1, 1, 1);     // Optional: Adjust scale
+  },
+  (xhr) => {
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded');  // Loading progress
+  },
+  (error) => {
+    console.error('An error happened:', error);  // Handle errors
+  }
+);
+
+
+
+
 
      // const loader = new GLTFLoader();
 
