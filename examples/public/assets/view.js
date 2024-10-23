@@ -30,9 +30,9 @@ class ARCamView
 
 
 
-        this.object.scale.set( scale, scale, scale );
-        this.object.position.set( x, y, z );
-        this.object.visible = false;
+        //this.object.scale.set( scale, scale, scale );
+        //this.object.position.set( x, y, z );
+        //this.object.visible = false;
 
         this.scene = new THREE.Scene();
         this.scene.add( new THREE.AmbientLight( 0x808080 ) );
