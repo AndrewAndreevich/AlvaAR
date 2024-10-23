@@ -23,7 +23,7 @@ class ARCamView
 
 
 
-        _this = this;
+        var _this = this;
 
 
 
