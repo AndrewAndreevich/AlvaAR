@@ -32,31 +32,6 @@ class ARCamView
         this.scene.add( this.camera );
         this.scene.add( this.object );
 
-              // Load the GLB model
-      const loader = new GLTFLoader();
-      loader.load(
-        'https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', 
-        // Path to your GLB file
-        (gltf) => {
-          const model = gltf.scene;
-          scene.add(model); // Add the model to the scene
-
-          // Optional: Traverse the model to extract meshes
-          model.traverse((child) => {
-            if (child.isMesh) {
-              child.castShadow = true;
-              child.receiveShadow = true;
-
-              // Example: Modify material if needed
-              child.material.wireframe = false;
-            }
-          });
-        },
-        undefined,
-        (error) => {
-          console.error('An error occurred while loading the GLB model:', error);
-        }
-      );
 
 
 
