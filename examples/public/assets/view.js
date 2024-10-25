@@ -65,13 +65,13 @@ class ARCamView
         this.applyPose( pose, this.camera.quaternion, this.camera.position );
 
         //this.object.visible = true;
-        this.root.visible = true;
+        //this.root.visible = true;
     }
 
     lostCamera()
     {
         //this.object.visible = false;
-        this.root.visible = false;
+        //this.root.visible = false;
     }
     
     loadGLTFModel(modelPath, x, y, z, scale) {
