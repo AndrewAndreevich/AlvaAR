@@ -32,15 +32,15 @@ class ARCamView
         var _this = this;
 
         // Load the GLB model
-        
-		//const gltfLoader = new GLTFLoader();
-		//gltfLoader.load( 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/refs/heads/main/2.0/Duck/glTF-Binary/Duck.glb', _this, ( gltf,root_context ) => {
-		//	root_context.root = gltf.scene;
-        //    root_context.root.scale.set( scale, scale, scale );
-        //    root_context.root.position.set( x, y, z );
-        //    root_context.root.visible = false;
-        //    root_context.scene.add( root_context.root );
-		//} );
+    
+		const gltfLoader = new GLTFLoader();
+		gltfLoader.load( 'https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/refs/heads/main/2.0/Duck/glTF-Binary/Duck.glb', _this, ( gltf,root_context ) => {
+			root_context.root = gltf.scene;
+            root_context.root.scale.set( scale, scale, scale );
+            root_context.root.position.set( x, y, z );
+            root_context.root.visible = false;
+            root_context.scene.add( root_context.root );
+		} );
 
 
 
@@ -60,13 +60,13 @@ class ARCamView
         this.applyPose( pose, this.camera.quaternion, this.camera.position );
 
         this.object.visible = true;
-        //this.root.visible = true;
+        this.root.visible = true;
     }
 
     lostCamera()
     {
         this.object.visible = false;
-        //this.root.visible = false;
+        this.root.visible = false;
     }
 }
 
