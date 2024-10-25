@@ -17,7 +17,7 @@ class ARCamView
         this.camera.rotation.reorder( 'YXZ' );
         this.camera.updateProjectionMatrix();
 
-        this.object = new THREE.Mesh( new THREE.IcosahedronGeometry( 1, 0 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
+        this.object = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
         this.object.scale.set( scale, scale, scale );
         this.object.position.set( x, y, z );
         this.object.visible = false;
