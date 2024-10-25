@@ -47,7 +47,7 @@ class ARCamView
 		//} );
 
         // Load the GLTF model
-        this.loadGLTFModel('https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/refs/heads/main/2.0/Duck/glTF-Binary/Duck.glb', x, y, z, scale);
+        // this.loadGLTFModel('https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/refs/heads/main/2.0/Duck/glTF-Binary/Duck.glb', x, y, z, scale);
 
         container.appendChild( this.renderer.domElement );
 
