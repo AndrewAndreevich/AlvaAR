@@ -47,7 +47,7 @@ class ARCamView
 		//} );
 
         // Load the GLTF model
-        //this.loadGLTFModel('https://raw.githubusercontent.com/AndrewAndreevich/AlvaAR/refs/heads/main/duck.glb', x, y, z, scale);
+        this.loadGLTFModel('https://raw.githubusercontent.com/AndrewAndreevich/AlvaAR/refs/heads/main/duck.glb', x, y, z, scale);
 
         container.appendChild( this.renderer.domElement );
 
@@ -65,13 +65,20 @@ class ARCamView
         this.applyPose( pose, this.camera.quaternion, this.camera.position );
 
         //this.object.visible = true;
-        //this.root.visible = true;
+        if( this.root!=null)
+        {
+            this.root.visible = true;
+        }
+        
     }
 
     lostCamera()
     {
         //this.object.visible = false;
-        //this.root.visible = false;
+        if( this.root!=null)
+        {
+            this.root.visible = false;
+        }
     }
     
     loadGLTFModel(modelPath, x, y, z, scale) {
