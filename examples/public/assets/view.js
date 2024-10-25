@@ -28,7 +28,7 @@ class ARCamView
         this.scene.add( new THREE.AmbientLight( 0x808080 ) );
         this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
         this.scene.add( this.camera );
-        this.scene.add( this.object );
+        //this.scene.add( this.object );
         var _this = this;
 
         // Load the GLB model
@@ -40,9 +40,8 @@ class ARCamView
             root_context.root.scale.set( scale, scale, scale );
             root_context.root.position.set( x, y, z );
             root_context.root.visible = false;
-            root_context.scene.add( root );
+            root_context.scene.add( root_context.root );
             
-
 		} );
 
 
