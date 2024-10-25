@@ -47,7 +47,7 @@ class ARCamView
 		//} );
 
         // Load the GLTF model
-        // this.loadGLTFModel('https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/refs/heads/main/2.0/Duck/glTF-Binary/Duck.glb', x, y, z, scale);
+        //this.loadGLTFModel('https://raw.githubusercontent.com/AndrewAndreevich/AlvaAR/refs/heads/main/duck.glb', x, y, z, scale);
 
         container.appendChild( this.renderer.domElement );
 
@@ -79,22 +79,22 @@ class ARCamView
         loader.load(
             modelPath,
             (gltf) => {
-               // const model = gltf.scene; // Loaded model's scene
-               // model.position.set(x, y, z);
-               // model.scale.set(scale, scale, scale);
-//
-               // // Optional: Traverse the model to manipulate individual meshes
-               // model.traverse((child) => {
-               //     if (child.isMesh) {
-               //         child.castShadow = true;
-               //         child.receiveShadow = true;
-               //     }
-               // });
-//
-               // // Add the model to the scene
-               // this.scene.add(model);
-               // this.root = model;
-               // this.root.visible = false;
+                const model = gltf.scene; // Loaded model's scene
+                model.position.set(x, y, z);
+                model.scale.set(scale, scale, scale);
+
+                // Optional: Traverse the model to manipulate individual meshes
+                model.traverse((child) => {
+                    if (child.isMesh) {
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                    }
+                });
+
+                // Add the model to the scene
+                this.scene.add(model);
+                this.root = model;
+                this.root.visible = false;
             },
             undefined,
             (error) => {
