@@ -2,6 +2,10 @@ import * as THREE from 'https://threejsfundamentals.org/threejs/resources/threej
 import { OrbitControls } from 'https://threejsfundamentals.org/threejs/resources/threejs/r132/examples/jsm/controls/OrbitControls.js';
 import { AlvaARConnectorTHREE } from './alva_ar_three.js'
 
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/loaders/GLTFLoader.js';
+
+
+
 class ARCamView
 {
     constructor( container, width, height, x = 0, y = 0, z = -10, scale = 1.0)
@@ -17,7 +21,7 @@ class ARCamView
         this.camera.rotation.reorder( 'YXZ' );
         this.camera.updateProjectionMatrix();
 
-        this.object = new THREE.Mesh( new THREE.BoxGeometry( 1, 1, 1 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
+        this.object = new THREE.Mesh( new THREE.BoxGeometry( 2, 2, 2 ), new THREE.MeshNormalMaterial( { flatShading: true } ) );
         this.object.scale.set( scale, scale, scale );
         this.object.position.set( x, y, z );
         this.object.visible = false;
@@ -28,12 +32,39 @@ class ARCamView
         this.scene.add( this.camera );
         this.scene.add( this.object );
 
+              // Load the GLB model
+      const loader = new GLTFLoader();
+      loader.load(
+        'https://andrewandreevich.github.io/arjs-02/06bd98b4-97ee-4c07-a546-fe39ca205034_bowser.glb', 
+        // Path to your GLB file
+        (gltf) => {
+          const model = gltf.scene;
+          scene.add(model); // Add the model to the scene
+
+          // Optional: Traverse the model to extract meshes
+          model.traverse((child) => {
+            if (child.isMesh) {
+              child.castShadow = true;
+              child.receiveShadow = true;
+
+              // Example: Modify material if needed
+              child.material.wireframe = false;
+            }
+          });
+        },
+        undefined,
+        (error) => {
+          console.error('An error occurred while loading the GLB model:', error);
+        }
+      );
+
+
+
         container.appendChild( this.renderer.domElement );
 
         const render = () =>
         {
             requestAnimationFrame( render.bind( this ) );
-
             this.renderer.render( this.scene, this.camera );
         }
 
