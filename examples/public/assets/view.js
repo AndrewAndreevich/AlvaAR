@@ -12,6 +12,19 @@ class ARCamView
 
     constructor( container, width, height, x = 0, y = 0, z = -10, scale = 1.0)
     {
+
+        console.log("set marker");
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        console.log(urlParams);
+
+        const objectURL = urlParams.get('object');
+        console.log(objectURL);
+
+        //objectURL = 'https://raw.githubusercontent.com/AndrewAndreevich/AlvaAR/refs/heads/main/duck.glb';
+
+        
         this.applyPose = AlvaARConnectorTHREE.Initialize( THREE );
 
         this.renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
@@ -47,7 +60,7 @@ class ARCamView
 		//} );
 
         // Load the GLTF model
-        this.loadGLTFModel('https://raw.githubusercontent.com/AndrewAndreevich/AlvaAR/refs/heads/main/duck.glb', x, y, z, scale);
+        this.loadGLTFModel(objectURL, x, y, z, scale);
 
         container.appendChild( this.renderer.domElement );
 
@@ -59,6 +72,20 @@ class ARCamView
 
         render();
     }
+
+
+    getModel() {
+        console.log("set model");
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        console.log(urlParams);
+
+        const object = urlParams.get('object');
+        return object;
+    }
+
+
 
     updateCameraPose( pose )
     {
