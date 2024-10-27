@@ -92,9 +92,10 @@ class ARCamView
         this.applyPose( pose, this.camera.quaternion, this.camera.position );
 
         //this.object.visible = true;
-        if( this.root!=null)
+        if( this.root!=null && !this.root.visible)
         {
             this.root.visible = true;
+            window.parent.postMessage("FOUND", "*");
         }
         
     }
@@ -102,9 +103,10 @@ class ARCamView
     lostCamera()
     {
         //this.object.visible = false;
-        if( this.root!=null)
+        if( this.root!=null&&this.root.visible)
         {
             this.root.visible = false;
+            window.parent.postMessage("LOST", "*");
         }
     }
     
