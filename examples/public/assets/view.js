@@ -42,7 +42,7 @@ class ARCamView
         //this.object.visible = false;
 
         this.scene = new THREE.Scene();
-        this.scene.add( new THREE.AmbientLight( 0x808080 ) );
+        this.scene.add( new THREE.AmbientLight( 0x808080, 2 ) );
         this.scene.add( new THREE.HemisphereLight( 0x404040, 0xf0f0f0, 1 ) );
         this.scene.add( this.camera );
       //  this.scene.add( this.object );
